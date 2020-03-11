@@ -1,0 +1,20 @@
+
+
+<div id="appTask">
+<h3>ניהול משימות</h3>
+  <form [formGroup]="myApp" (ngSubmit)="onSubmit()">
+
+   <input  type="text" placeholder="הכנס משימה"  formControlName="task" required >
+   <button  type="submit" name="submit"  [disabled]="myApp.invalid">הוספה</button>
+   <br/>
+   
+
+  </form>
+<button id="restoelast" name="lastDel" (click)="lastDelTask()" >בטל מחיקה אחרונה</button>
+
+
+ <p>רשימת משימות</p>
+ <ol>
+   <li *ngFor="let t of tasksList" (click)="deleteTask(t)">{{t}}</li>
+ </ol>
+</div>
